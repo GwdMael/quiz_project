@@ -1,98 +1,77 @@
 [
     {
-        "question" : "Comment créer une variable en PHP?",
-        "choices" : ["int", "char", "var", "let"],
-        "correct" : 3
-    },
-    {
-        "question" : "Comment créer une fonction timer en PHP?",
-        "choices" : ["fonction(timer)", "function timer()", "function(timer)", "if (timer)"],
-        "correct" : 1
-    }
-][
-    {
-        "question" : "Comment créer une variable en PHP?",
-        "choices" : ["int", "char", "var", "let"],
-        "correct" : 3
-    },
-    {
-        "question" : "Comment créer une fonction timer en PHP?",
-        "choices" : ["fonction(timer)", "function timer()", "function(timer)", "if (timer)"],
-        "correct" : 1
-    },
-    {
         "question" : "Comment déclarer une variable globale en PHP?",
-        "choices" : ["$GLOBALS", "$global", "global", "var"],
+        "choices" : ["global", "$GLOBALS", "$global", "var"],
         "correct" : 1
     },
     {
         "question" : "Quelle est la méthode pour ajouter un élément à un tableau en JavaScript?",
-        "choices" : ["push()", "pop()", "unshift()", "concat()"],
-        "correct" : 1
+        "choices" : ["pop()", "unshift()", "concat()", "push()"],
+        "correct" : 3
     },
     {
         "question" : "Quel est l’opérateur pour obtenir le reste d’une division en PHP?",
-        "choices" : ["%", "/", "//", "*"],
-        "correct" : 1
-    },
-    {
-        "question" : "Quel est le résultat de l’expression \"5\" + 5 en JavaScript?",
-        "choices" : ["10", "55", "Error", "NaN"],
+        "choices" : ["*", "/", "%", "//"],
         "correct" : 2
     },
     {
-        "question" : "Que fait la méthode setTimeout() en JavaScript?",
-        "choices" : ["Exécute une fonction après un délai", "Exécute une fonction immédiatement", "Arrête l'exécution du script", "Réinitialise une variable"],
+        "question" : "Quel est le résultat de l’expression \"5\" + 5 en JavaScript?",
+        "choices" : ["NaN", "55", "Error", "10"],
         "correct" : 1
+    },
+    {
+        "question" : "Que fait la méthode setTimeout() en JavaScript?",
+        "choices" : ["Réinitialise une variable", "Arrête l'exécution du script", "Exécute une fonction après un délai", "Exécute une fonction immédiatement"],
+        "correct" : 2
     },
     {
         "question" : "Comment définir une constante en PHP?",
-        "choices" : ["define()", "const", "constant()", "set_constant()"],
-        "correct" : 1
+        "choices" : ["define()", "set_constant()", "const", "constant()"],
+        "correct" : 2
     },
     {
         "question" : "Quel est le but de la méthode Array.map() en JavaScript?",
-        "choices" : ["Appliquer une fonction à chaque élément d’un tableau", "Filtrer les éléments d’un tableau", "Ajouter un élément au début d’un tableau", "Supprimer un élément d’un tableau"],
-        "correct" : 1
+        "choices" : ["Filtrer les éléments d’un tableau", "Ajouter un élément au début d’un tableau", "Supprimer un élément d’un tableau", "Appliquer une fonction à chaque élément d’un tableau"],
+        "correct" : 3
     },
     {
         "question" : "Quelle méthode permet de vérifier si une variable est un tableau en PHP?",
-        "choices" : ["is_array()", "array_check()", "is_table()", "check_array()"],
+        "choices" : ["array_check()", "is_array()", "is_table()", "check_array()"],
         "correct" : 1
     },
     {
         "question" : "Quelle est la valeur de la variable $a après l’exécution de ce code : $a = 10; $a += 5;",
-        "choices" : ["10", "15", "5", "25"],
+        "choices" : ["10", "25", "15", "5"],
         "correct" : 2
     },
     {
         "question" : "Quelle est la méthode pour envoyer une requête HTTP en JavaScript?",
-        "choices" : ["fetch()", "httpRequest()", "get()", "send()"],
-        "correct" : 1
+        "choices" : ["httpRequest()", "get()", "send()", "fetch()"],
+        "correct" : 3
     },
     {
         "question" : "Comment déclarer une fonction en JavaScript?",
-        "choices" : ["function maFonction()", "maFonction() function", "declare function maFonction()", "create function maFonction()"],
-        "correct" : 1
+        "choices" : ["maFonction() function", "create function maFonction()", "declare function maFonction()", "function maFonction()"],
+        "correct" : 3
     },
     {
         "question" : "Comment créer un tableau associatif en PHP?",
-        "choices" : ["$tableau[] = valeur;", "$tableau[key] = valeur;", "array(key => valeur);", "$tableau = array();"],
-        "correct" : 2
+        "choices" : ["$tableau[] = valeur;", "$tableau = array();", "array(key => valeur);", "$tableau[key] = valeur;"],
+        "correct" : 3
     },
     {
         "question" : "Quel est l’opérateur de comparaison strict en JavaScript?",
-        "choices" : ["===", "==", "<>", "!=="],
-        "correct" : 1
+        "choices" : ["!==", "===", "==", "<>"],
+        "correct" : 0
     },
     {
         "question" : "Que fait la méthode document.getElementById() en JavaScript?",
-        "choices" : ["Retourne un élément par son identifiant", "Retourne un élément par sa classe", "Retourne tous les éléments", "Ajoute un élément à la page"],
-        "correct" : 1
+        "choices" : ["Retourne un élément par son identifiant", "Retourne tous les éléments", "Retourne un élément par sa classe", "Ajoute un élément à la page"],
+        "correct" : 0
     },
     {
         "question" : "Comment déclarer un tableau vide en PHP?",
-        "choices" : ["$tableau = array();", "$tableau = [];", "$tableau = new Array();", "$tableau = empty();"],
+        "choices" : ["$tableau = new Array();", "$tableau = []; ", "$tableau = array();", "$tableau = empty();"],
         "correct" : 1
     }
 ]

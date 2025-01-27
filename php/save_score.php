@@ -9,4 +9,5 @@ $score = $_POST['score'];
 $stmt = $pdo->prepare("INSERT INTO scores (score) VALUES (:score)");
 $stmt->execute(['score' => $score]);
 
+echo "Score sauvegardé !";
 ?>
