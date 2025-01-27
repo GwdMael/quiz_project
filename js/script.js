@@ -1,6 +1,8 @@
 let timer;
 let timerLeft = 30; // Durée initiale en secondes
 let score = 0;
+let questions = [];
+let currentQuestionIndex = 0;
 
 function startTimer() {
     timer = setInterval(function() {
@@ -8,7 +10,7 @@ function startTimer() {
             clearInterval(timer); // Arrêt du timer quand il atteint 0
             alert("Temps écoulé !");
             // Passage à la question suivante
-            fetchQuestion();
+            showQuestion();
         } else {
             document.getElementById('timer').innerHTML = "Temps restant: " + timerLeft + "s";
             timerLeft--; // Diminue le temps d'une seconde
@@ -23,8 +25,8 @@ function resetTimer() {
 }
 
 // Fonction récupérer les questions via PHP
-function fetchQuestion() {
-    fetch('./php/get_question.php')
+function fetchQuestions() {
+    fetch('./data/questions.json')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -32,26 +34,39 @@ function fetchQuestion() {
         return response.json();
     })
     .then(data => {
-        if (data.error) {
-            throw new Error(data.error);
-        }
-        // Affiche la question et les choix de réponse
-        document.getElementById('question').innerText = data.question;
-
-        // Affiche les choix
-        const choices = document.querySelectorAll('.choice');
-        choices.forEach((choice, index) => {
-            choice.innerText = data.choices[index]; // Affiche les choix de réponse
-            choice.onclick = () => checkAnswer(index); // Vérifie la réponse quand on clique
-        });
-
-        // Stocke l'indice de la réponse correcte
-        correctChoiceIndex = data.correct;
-
-        // Réinitialise le timer pour la nouvelle question
-        resetTimer();
+        questions = data;
+        showQuestion();
     })
     .catch(error => console.error("Erreur :", error)); // Gérer les erreurs
+}
+
+// Fonction pour afficher une question
+function showQuestion() {
+    if (currentQuestionIndex >= questions.length) {
+        alert("Quiz terminé !");
+        saveScore();
+        return;
+    }
+
+    const questionData = questions[currentQuestionIndex];
+    document.getElementById('question').innerText = questionData.question;
+
+    const choices = document.querySelectorAll('.choice');
+    choices.forEach((choice, index) => {
+        choice.innerText = questionData.choices[index]; // Affiche les choix de réponse
+        choice.onclick = () => checkAnswer(index); // Vérifie la réponse quand on clique
+    });
+
+    // Stocke l'indice de la réponse correcte
+    correctChoiceIndex = questionData.correct;
+
+    // Réinitialise le timer pour la nouvelle question
+    resetTimer();
+}
+
+// Fonction pour afficher le score
+function displayScore() {
+    document.getElementById('score').innerText = "Score: " + score;
 }
 
 // Fonction pour vérifier la réponse
@@ -62,18 +77,21 @@ function checkAnswer(selectedIndex) {
     } else {
         alert("Mauvaise réponse !");
     }
+    // Affiche le score
+    displayScore();
     // Charger une nouvelle question après avoir vérifié la réponse
-    fetchQuestion();
+    currentQuestionIndex++;
+    showQuestion();
 }
 
 // Fonction pour envoyer le score au serveur
 function saveScore() {
-    fetch('./php/save_score.php', {
+    fetch('./save_score.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: `score=${score}`
+        body: `score=${score}` // Envoie le score au serveur
     })
     .then(response => {
         if (!response.ok) {
@@ -84,8 +102,8 @@ function saveScore() {
     .then(data => {
         console.log('Score sauvegardé:', data);
     })
-    .catch(error => console.error('Erreur:', error));
+    .catch(error => console.error('Erreur : ', error));
 }
 
 // Appelle de la fonction
-fetchQuestion();
+fetchQuestions();

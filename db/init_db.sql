@@ -15,7 +15,6 @@ CREATE TABLE questions (
     correct INT NOT NULL
 );
 
-
 INSERT INTO questions (question, choice1, choice2, choice3, choice4, correct)
 VALUES 
 ('Comment déclarer une variable globale en PHP?', 'global', '$GLOBALS', '$global', 'var', 1),
@@ -33,7 +32,6 @@ VALUES
 ('Quel est l’opérateur de comparaison strict en JavaScript?', '!==', '===', '==', '<>', 0),
 ('Que fait la méthode document.getElementById() en JavaScript?', 'Retourne un élément par son identifiant', 'Retourne tous les éléments', 'Retourne un élément par sa classe', 'Ajoute un élément à la page', 0),
 ('Comment déclarer un tableau vide en PHP?', '$tableau = new Array();', '$tableau = [];', '$tableau = array();', '$tableau = empty();', 1);
-
 
 
 CREATE TABLE scores (

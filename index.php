@@ -23,12 +23,12 @@
 
         <button id="next">Suivant</button> <!-- Passage à la question suivante -->
         <p id="timer">Temps restant: 30s</p> <!-- Affichage compte à rebours -->
-        
+        <p id="score">Score :</p>
         <form action="save_score.php" method="POST" id="scoreForm">
             <input type="hidden" name="score" id="scoreInput" value="">
             <button type="submit">Sauvegarder le score</button>
         </form>
-        
+
     </div>
 
 

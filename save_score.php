@@ -1,6 +1,6 @@
 <?php
 // Ajout connexion base de données
-include('connexion.php');
+include('./php/connexion.php');
 
 // Récupérer le score depuis le formulaire
 $score = $_POST['score'];
